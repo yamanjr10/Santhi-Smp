@@ -14,7 +14,7 @@
     "itemsUsed": 3797,
     "entitiesKilled": 23,
     "jumps": 2752,
-    "lastSeen": "2025-11-07 03:03:05",
+    "lastSeen": "2025-11-07 03:25:15",
     "movement": {
       "Distance Sprinted": 6733,
       "Distance Walked": 8631,
@@ -53,7 +53,7 @@
     "itemsUsed": 395,
     "entitiesKilled": 24,
     "jumps": 617,
-    "lastSeen": "2025-11-07 03:03:05",
+    "lastSeen": "2025-11-07 03:25:15",
     "movement": {
       "Distance Sprinted": 1691,
       "Distance Walked": 916,
@@ -92,7 +92,7 @@
     "itemsUsed": 16619,
     "entitiesKilled": 338,
     "jumps": 11453,
-    "lastSeen": "2025-11-07 03:03:05",
+    "lastSeen": "2025-11-07 03:25:15",
     "movement": {
       "Distance Sprinted": 22071,
       "Distance Walked": 21260,
@@ -131,7 +131,7 @@
     "itemsUsed": 11420,
     "entitiesKilled": 369,
     "jumps": 12089,
-    "lastSeen": "2025-11-07 03:03:05",
+    "lastSeen": "2025-11-07 03:25:15",
     "movement": {
       "Distance Sprinted": 21892,
       "Distance Walked": 6494,
@@ -170,7 +170,7 @@
     "itemsUsed": 20053,
     "entitiesKilled": 612,
     "jumps": 11145,
-    "lastSeen": "2025-11-07 03:03:05",
+    "lastSeen": "2025-11-07 03:25:15",
     "movement": {
       "Distance Sprinted": 37525,
       "Distance Walked": 11646,
@@ -197,22 +197,22 @@
   {
     "uuid": "172d8e34-6b9d-354a-9957-296c54fc66a4",
     "name": "yamanjr",
-    "playtime": 537,
+    "playtime": 547,
     "hearts": 10.0,
     "blocksMined": 6003,
-    "distanceTraveled": 31433,
-    "playerKills": 0,
+    "distanceTraveled": 31490,
+    "playerKills": 14,
     "mobKills": 183,
-    "kills": 0,
+    "kills": 14,
     "deaths": 1,
-    "KDR": 0.0,
-    "itemsUsed": 8296,
+    "KDR": 14.0,
+    "itemsUsed": 8329,
     "entitiesKilled": 180,
-    "jumps": 7597,
-    "lastSeen": "2025-11-07 03:03:05",
+    "jumps": 7615,
+    "lastSeen": "2025-11-07 03:25:15",
     "movement": {
-      "Distance Sprinted": 15660,
-      "Distance Walked": 8612,
+      "Distance Sprinted": 15666,
+      "Distance Walked": 8663,
       "Distance by Boat": 3166,
       "Distance Fallen": 1672,
       "Distance Swum": 1377,
@@ -220,16 +220,16 @@
       "Distance Walked under Water": 207,
       "Distance Crouched": 94,
       "Distance Climbed": 75,
-      "Total (blocks)": 31433
+      "Total (blocks)": 31490
     },
     "totals": {
-      "Playtime": "537 min",
+      "Playtime": "547 min",
       "Blocks Mined": "6,003",
-      "Distance Travelled (in blocks)": "31,433",
-      "Kills": 0,
+      "Distance Travelled (in blocks)": "31,490",
+      "Kills": 14,
       "Deaths": 1,
-      "KDR": 0.0,
-      "Items Used": "8,296",
+      "KDR": 14.0,
+      "Items Used": "8,329",
       "Health (hearts)": 10.0
     }
   },
@@ -248,7 +248,7 @@
     "itemsUsed": 1,
     "entitiesKilled": 0,
     "jumps": 50,
-    "lastSeen": "2025-11-07 03:03:05",
+    "lastSeen": "2025-11-07 03:25:15",
     "movement": {
       "Distance Sprinted": 2,
       "Distance Walked": 278,
@@ -287,7 +287,7 @@
     "itemsUsed": 0,
     "entitiesKilled": 0,
     "jumps": 0,
-    "lastSeen": "2025-11-07 03:03:05",
+    "lastSeen": "2025-11-07 03:25:15",
     "movement": {
       "Distance Sprinted": 0,
       "Distance Walked": 0,
@@ -312,6 +312,45 @@
     }
   },
   {
+    "uuid": "a4b07c70-707c-3016-949a-fe3a56cee5f7",
+    "name": "Muku33",
+    "playtime": 9,
+    "hearts": 10.0,
+    "blocksMined": 0,
+    "distanceTraveled": 612,
+    "playerKills": 0,
+    "mobKills": 0,
+    "kills": 0,
+    "deaths": 14,
+    "KDR": 0.0,
+    "itemsUsed": 0,
+    "entitiesKilled": 0,
+    "jumps": 239,
+    "lastSeen": "2025-11-07 03:25:15",
+    "movement": {
+      "Distance Sprinted": 272,
+      "Distance Walked": 69,
+      "Distance by Boat": 0,
+      "Distance Fallen": 44,
+      "Distance Swum": 207,
+      "Distance Walked on Water": 13,
+      "Distance Walked under Water": 7,
+      "Distance Crouched": 0,
+      "Distance Climbed": 0,
+      "Total (blocks)": 612
+    },
+    "totals": {
+      "Playtime": "9 min",
+      "Blocks Mined": "0",
+      "Distance Travelled (in blocks)": "612",
+      "Kills": 0,
+      "Deaths": 14,
+      "KDR": 0.0,
+      "Items Used": "0",
+      "Health (hearts)": 10.0
+    }
+  },
+  {
     "uuid": "aac3e598-6db2-378f-986c-26ca141267bd",
     "name": "minezraftiron",
     "playtime": 1,
@@ -326,7 +365,7 @@
     "itemsUsed": 0,
     "entitiesKilled": 0,
     "jumps": 10,
-    "lastSeen": "2025-11-07 03:03:05",
+    "lastSeen": "2025-11-07 03:25:15",
     "movement": {
       "Distance Sprinted": 9,
       "Distance Walked": 9,
@@ -365,7 +404,7 @@
     "itemsUsed": 183,
     "entitiesKilled": 10,
     "jumps": 235,
-    "lastSeen": "2025-11-07 03:03:05",
+    "lastSeen": "2025-11-07 03:25:15",
     "movement": {
       "Distance Sprinted": 330,
       "Distance Walked": 373,
@@ -404,7 +443,7 @@
     "itemsUsed": 131,
     "entitiesKilled": 20,
     "jumps": 405,
-    "lastSeen": "2025-11-07 03:03:05",
+    "lastSeen": "2025-11-07 03:25:15",
     "movement": {
       "Distance Sprinted": 490,
       "Distance Walked": 356,
@@ -443,7 +482,7 @@
     "itemsUsed": 122,
     "entitiesKilled": 6,
     "jumps": 221,
-    "lastSeen": "2025-11-07 03:03:05",
+    "lastSeen": "2025-11-07 03:25:15",
     "movement": {
       "Distance Sprinted": 805,
       "Distance Walked": 523,
@@ -482,7 +521,7 @@
     "itemsUsed": 17659,
     "entitiesKilled": 988,
     "jumps": 34152,
-    "lastSeen": "2025-11-07 03:03:05",
+    "lastSeen": "2025-11-07 03:25:15",
     "movement": {
       "Distance Sprinted": 50964,
       "Distance Walked": 46494,

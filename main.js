@@ -24,10 +24,10 @@ const totalDistance = document.getElementById('totalDistance');
 // Format time from minutes to Xh Ym
 function formatTime(minutes) {
     if (!minutes || minutes === 0) return '0m';
-    
+
     const hours = Math.floor(minutes / 60);
     const mins = Math.floor(minutes % 60);
-    
+
     if (hours === 0) return `${mins}m`;
     if (mins === 0) return `${hours}h`;
     return `${hours}h ${mins}m`;
@@ -60,21 +60,21 @@ function getAvatarUrl(uuid, name, size = 80) {
 // Format player name to show at least 3 characters
 function formatPlayerName(name) {
     if (!name) return 'Unknown';
-    
+
     // Remove any leading/trailing dots and spaces
     const cleanName = name.trim().replace(/^\.+|\.+$/g, '');
-    
+
     if (cleanName.length <= 12) {
         return cleanName;
     }
-    
+
     // For long names, show first 3 characters + "..." + last 3 characters
     if (cleanName.length > 12) {
         const firstPart = cleanName.substring(0, 3);
         const lastPart = cleanName.substring(cleanName.length - 3);
         return `${firstPart}...${lastPart}`;
     }
-    
+
     return cleanName;
 }
 
@@ -83,7 +83,7 @@ function sortPlayersByStat(stat) {
     return [...players].sort((a, b) => {
         let aVal = a[stat] || 0;
         let bVal = b[stat] || 0;
-        
+
         // For all stats, higher is better (even deaths - shows most deaths)
         return bVal - aVal;
     });
@@ -98,13 +98,13 @@ function updateStatHeader() {
         distanceTraveled: 'Distance (km)',
         deaths: 'Deaths'
     };
-    
+
     statHeader.textContent = headerTexts[currentStat] || 'Stat';
 }
 
 // Get display value for current stat
 function getStatDisplayValue(player, stat) {
-    switch(stat) {
+    switch (stat) {
         case 'playtime':
             return formatTime(player.playtime);
         case 'distanceTraveled':
@@ -121,26 +121,26 @@ function getStatDisplayValue(player, stat) {
 // Render leaderboard
 function renderLeaderboard() {
     const sortedPlayers = sortPlayersByStat(currentStat);
-    
+
     leaderboardList.innerHTML = '';
-    
+
     sortedPlayers.forEach((player, index) => {
         const rank = index + 1;
         const row = document.createElement('div');
         row.className = `leaderboard-item ${rank <= 3 ? `rank-${rank}` : ''}`;
-        
+
         // Get stat value for display
         const statValue = getStatDisplayValue(player, currentStat);
-        
+
         // Rank badge for top 3
         let rankBadge = '';
         if (rank === 1) rankBadge = '👑';
         if (rank === 2) rankBadge = '🥈';
         if (rank === 3) rankBadge = '🥉';
-        
+
         // Format player name to show at least 3 characters
         const displayName = formatPlayerName(player.name);
-        
+
         row.innerHTML = `
             <div class="player-rank">
                 ${rankBadge ? `<div class="rank-badge">${rankBadge}</div>` : ''}
@@ -155,7 +155,7 @@ function renderLeaderboard() {
             </div>
             <div class="player-stat">${statValue}</div>
         `;
-        
+
         row.addEventListener('click', () => openPlayerModal(player, rank));
         leaderboardList.appendChild(row);
     });
@@ -171,17 +171,14 @@ function openPlayerModal(player, rank) {
     const statRow = document.getElementById('statRow');
     const detailedStats = document.getElementById('detailedStats');
     const chartContainer = document.getElementById('chartContainer');
-    
+
     // Set basic player info
     modalName.textContent = player.name;
     modalUid.textContent = `UUID: ${player.uuid}`;
-    
+
     // Set avatar (use Steve for names starting with '.')
     modalAvatar.innerHTML = `<img src="${getAvatarUrl(player.uuid, player.name, 120)}" alt="${player.name}'s avatar" style="width:100%;height:100%;object-fit:cover">`;
-    
-    // Set last seen
-    modalLastSeen.textContent = player.lastSeen ? new Date(player.lastSeen).toLocaleDateString() + ' ' + new Date(player.lastSeen).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : 'Unknown';
-    
+
     // Create stat badges (Summary section)
     const badges = [
         { label: 'Rank', value: `#${rank}` },
@@ -193,14 +190,14 @@ function openPlayerModal(player, rank) {
         { label: 'Blocks Mined', value: (player.blocksMined || 0).toLocaleString() },
         { label: 'Distance', value: formatDistance(player.distanceTraveled) }
     ];
-    
+
     statRow.innerHTML = badges.map(badge => `
         <div class="badge">
             <strong>${badge.value}</strong>
             <div>${badge.label}</div>
         </div>
     `).join('');
-    
+
     // Create detailed stats with ALL data from players.json
     const detailedStatsData = [
         { label: 'Player Kills', value: player.playerKills || 0 },
@@ -216,26 +213,26 @@ function openPlayerModal(player, rank) {
         { label: 'Health', value: `${player.hearts || 10} hearts` },
         { label: 'Playtime', value: formatTime(player.playtime) }
     ];
-    
+
     // Add movement stats if available
     if (player.movement) {
         Object.entries(player.movement).forEach(([key, value]) => {
             if (key !== 'Total (blocks)') {
-                detailedStatsData.push({ 
-                    label: key, 
-                    value: typeof value === 'number' ? value.toLocaleString() + ' blocks' : value 
+                detailedStatsData.push({
+                    label: key,
+                    value: typeof value === 'number' ? value.toLocaleString() + ' blocks' : value
                 });
             }
         });
     }
-    
+
     detailedStats.innerHTML = detailedStatsData.map(stat => `
         <div class="detailed-stat">
             <span class="detailed-stat-label">${stat.label}:</span>
             <span class="detailed-stat-value">${stat.value}</span>
         </div>
     `).join('');
-    
+
     // Handle KDR chart
     if (player.kdrHistory && player.kdrHistory.length > 0) {
         chartContainer.classList.remove('hidden');
@@ -247,13 +244,13 @@ function openPlayerModal(player, rank) {
             kdrChart = null;
         }
     }
-    
+
     // Show modal
     modal.classList.add('open');
     document.body.classList.add('modal-open');
-    
+
     // Set up copy UUID button
-    document.getElementById('copyUuidBtn').onclick = function() {
+    document.getElementById('copyUuidBtn').onclick = function () {
         navigator.clipboard.writeText(player.uuid).then(() => {
             const originalHtml = this.innerHTML;
             this.innerHTML = '<i class="fas fa-check"></i>';
@@ -267,15 +264,15 @@ function openPlayerModal(player, rank) {
 // Render KDR chart
 function renderKdrChart(kdrHistory) {
     const ctx = document.getElementById('kdrChart').getContext('2d');
-    
+
     // Destroy existing chart
     if (kdrChart) {
         kdrChart.destroy();
     }
-    
+
     const labels = kdrHistory.map((entry, index) => `Day ${index + 1}`);
     const data = kdrHistory.map(entry => entry.kdr || entry);
-    
+
     kdrChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -343,7 +340,7 @@ function calculateTotals() {
         blocks: players.reduce((sum, player) => sum + (player.blocksMined || 0), 0),
         distance: players.reduce((sum, player) => sum + (player.distanceTraveled || 0), 0)
     };
-    
+
     // Animate totals
     animateValue(totalPlayersStat, 0, totals.players, 4500);
     animateValue(totalPlaytime, 0, totals.playtime, 4500, formatTime);
@@ -358,18 +355,18 @@ function animateValue(element, start, end, duration, formatter = null) {
     const step = (currentTime) => {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        
+
         // Easing function
         const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-        
+
         const value = Math.floor(start + (end - start) * easeOutQuart);
-        
+
         if (formatter) {
             element.textContent = formatter(value);
         } else {
             element.textContent = value.toLocaleString();
         }
-        
+
         if (progress < 1) {
             requestAnimationFrame(step);
         } else {
@@ -380,7 +377,7 @@ function animateValue(element, start, end, duration, formatter = null) {
             }
         }
     };
-    
+
     requestAnimationFrame(step);
 }
 
@@ -410,32 +407,32 @@ function init() {
             console.error('Error loading player data:', error);
             leaderboardList.innerHTML = '<div style="text-align:center;padding:20px;color:var(--muted)">Error loading player data</div>';
         });
-    
+
     // Set up tab click handlers
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             // Update active tab
             tabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
-            
+
             // Update current stat and re-render
             currentStat = tab.getAttribute('data-stat');
             updateStatHeader();
             renderLeaderboard();
         });
     });
-    
+
     // Set up modal close handlers
     document.getElementById('closeModal').addEventListener('click', closeModal);
-    document.getElementById('playerModal').addEventListener('click', function(e) {
+    document.getElementById('playerModal').addEventListener('click', function (e) {
         if (e.target === this) closeModal();
     });
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeModal();
     });
-    
+
     // Set up IP copy button
-    document.getElementById('joinBtn').addEventListener('click', function() {
+    document.getElementById('joinBtn').addEventListener('click', function () {
         navigator.clipboard.writeText('Nepaldmkurl.aternos.me:26225').then(() => {
             const originalText = this.innerHTML;
             this.innerHTML = '<i class="fas fa-check"></i> Copied!';
@@ -444,7 +441,7 @@ function init() {
             }, 2000);
         });
     });
-    
+
     // Initialize stat header
     updateStatHeader();
 }
