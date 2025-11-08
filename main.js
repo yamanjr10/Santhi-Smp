@@ -1,11 +1,3 @@
-// main.js - Nepaldmkurl SMP Stats
-// Assumptions about players.json structure:
-// - Array of player objects with fields: uuid, name, playtime, hearts, blocksMined, 
-//   distanceTraveled, playerKills, mobKills, kills, deaths, KDR, itemsUsed, 
-//   entitiesKilled, jumps, lastSeen, movement, totals
-// - Names starting with '.' get Steve skin
-// - All stats should be accurately displayed
-
 // Global variables
 let players = [];
 let currentStat = 'playtime';
