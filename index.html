@@ -1238,6 +1238,41 @@
         </div>
     </div>
 
+    <script>
+const serverAddress = "Nepaldmkurl.aternos.me:26225"; // your server address
+const apiUrl = `https://api.mcsrvstat.us/2/${serverAddress.split(":")[0]}`; 
+
+async function updateServerStatus() {
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        const statusDot = document.getElementById("statusDot");
+        const statusText = document.getElementById("statusText");
+        const playerCount = document.getElementById("playerCount");
+
+        if (data.online) {
+            statusDot.classList.remove("offline");
+            statusDot.classList.add("online");
+            statusText.textContent = "Online";
+            playerCount.textContent = `${data.players.online} / ${data.players.max}`;
+        } else {
+            statusDot.classList.remove("online");
+            statusDot.classList.add("offline");
+            statusText.textContent = "Offline";
+            playerCount.textContent = "0 / 20";
+        }
+    } catch (error) {
+        console.error("Error fetching server data:", error);
+    }
+}
+
+// check immediately and refresh every 30 seconds
+updateServerStatus();
+setInterval(updateServerStatus, 30000);
+</script>
+
+
     <script src="main.js"></script>
 </body>
 
